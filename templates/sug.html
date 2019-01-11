@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<form id="upload-file" method="post" enctype="multipart/form-data">
+  <div class="col-2" id="drop-zone">
+  <label for="upload-photo" class="cc">Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span></label>
+<input type="file" name="file" id="upload-photo" />
+<div id="selected_filename" style="display:none;">
+<button class="filepond--file-action-button filepond--action-remove-item" type="button" title="Remove" data-align="left" id="remove"><svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M11.586 13l-2.293 2.293a1 1 0 0 0 1.414 1.414L13 14.414l2.293 2.293a1 1 0 0 0 1.414-1.414L14.414 13l2.293-2.293a1 1 0 0 0-1.414-1.414L13 11.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L11.586 13z" fill="currentColor" fill-rule="nonzero"></path></svg></button>
+
+<button class="filepond--file-action-button filepond--action-abort-item-load" type="button" title="Abort" data-align="right" style="pointer-events:none;float:right;margin-left: 10px;" disabled="disabled" id="load"><svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+    <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+      <animateTransform
+         attributeName="transform"
+         attributeType="XML"
+         type="rotate"
+         dur="1s"
+         from="0 50 50"
+         to="360 50 50"
+         repeatCount="indefinite" />
+  </path>
+</svg></button>
+    <span id="namesel"></span><span class="filepond--file-info-sub" id="siz"></span></div>
+
+  </div>
+  <div class="col-2" id="drop-zone">
+    <label class="contact" for="rawsearch">
+      Search
+      <input placeholder="E.g AMP1,AMP2 or AMP1 AMP2" tabindex="2" name="rawsearch"  />
+    </label>
+
+  </div>
+  <div class="col-3">
+   <label for="sheet">
+      Sheet Name ( for files uploads only )
+     <!-- <select  id="sheetpath"> -->
+        <input type="text" list="sheetpath" tabindex="3" placeholder="Enter Sheet name manually or select" name="sheet"  />
+<datalist id="sheetpath" >
+
+</datalist>
+
+    </label>
+
+  </div>
+  <div class="col-3">
+    <label for="pricelist">
+      Pricelist
+      <input placeholder="Z3 by default e.g Z3,Y1" tabindex="4" name="pricelist"  />
+    </label>
+  </div>
+  <div class="col-3">
+    <label for="text">
+      Organization
+      <input placeholder="1000 by default e.g 1000,3000" tabindex="5" name="text" />
+    </label>
+  </div>
+
+        <button id="upload-file-btn" type="button">Upload</button>
+
+</form>
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(function() {
+    $('#upload-file-btn').click(function() {
+        var form_data = new FormData($('#upload-file')[0]);
+         console.log(form_data);
+
+        $.ajax({
+            type: 'POST',
+            url: '/uploadajax',
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+            console.log(data);
+                console.log('Success!');
+                 //$("#mytable tr").remove();
+                 $('#mytable').empty();
+                 $('#mytable').append('<thead><tr class="filters"><th>SKU</th><th>Material</th><th>Pricelist</th></tr></thead><tbody id="tbod"></tbody>');
+
+
+
+                if (!!window.EventSource) {
+  var source = new EventSource('/upload');
+  console.log(source)
+  source.addEventListener('import-progress', function(event)
+            {
+
+             var byte = event.data;
+   console.log(byte);
+   var res = byte.split(/\s*,\s*/);
+    <!--res.forEach(byte => console.log(byte)); -->
+   console.log(res)
+   <!-- $("#morse").text(res[0]); -->
+     //var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + res[0] + "</td><td>" + res[1] + "</td><td>"
+      //     + res[2] + "</td></tr>";
+      var markup = "<tr class='content'><td data-title='Name'>" + res[0] + "</td><td data-title='Link'>" + res[1] + "</td><td data-title='Status'>" + res[2]  + "</td></tr>";
+
+            $("#tbod").append(markup);
+
+            }, false
+
+);
+    source.addEventListener('last-item', function(event) {
+    source.close();
+    var byte = event.data;
+   console.log(event.data)
+   var res = byte.split(/\s*,\s*/);
+     var markup = "<tr class='content'><td data-title='Name'>" + res[0] + "</td><td data-title='Link'>" + res[1] + "</td><td data-title='Status'>" + res[2]  + "</td></tr>";
+
+            $("#tbod").append(markup);
+
+     <!--  redirect(event.data); -->
+     doSomething();
+     $("#mytable_filter").remove();
+   }, false
+);
+}
+            },
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

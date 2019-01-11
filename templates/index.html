@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="sketchpad">
+	<title>
+		UI to HTML
+	</title>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="static/style_sketch.css">
+	<script src="http://code.jquery.com/jquery-1.12.2.min.js" type="text/javascript"></script>
+	<script src="static/board.js"></script>
+	<link rel="icon"  href="static/assets/maizy.png">
+	<style>
+#board {
+    /* background-color: #e0ebeb; */
+    margin: 9px 70px auto;
+    width: 500px;
+    border: 1px solid #5fba7d;
+    float: left;
+}
+.container {
+    float: right;
+    width: 500px;
+    margin: -12% auto;
+}
+
+#save_button {
+    background-color: #0095ff;
+    text-decoration: none;
+    font-size: 22px;
+    color: #ffffff;
+    font-family: 'indie flower';
+    font-weight: bold;
+    border: .5px solid #0095ff;
+    margin: 3% auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+}
+	</style>
+</head>
+<body>
+	<table style="width:100%;">
+		<tr style="width:100%;">
+			<td style="width:100%";>
+				<div class="head">
+
+ 				</div>
+				<p style="border-top: 1px solid #efeef0;"></p>
+			</td>
+		</tr>
+    </table>
+
+	<h1>
+		<p id="text">Draw your HTML</p>
+	</h1>
+	<div id="board">
+		<canvas id="myCanvas" width="400px" height="400px">
+		</canvas>
+		<div><button id = "save_button" onclick="send()" style="cursor:pointer"> Go </button></div>
+	</div><!-- END board -->
+
+	<div class="container">
+
+		<div class="innerClass">
+			<div id="accuracyN" ><a onclick="feedback()" style="cursor:pointer"><img src=static/assets/incorrect.png width=40 alt="no"></a></div>
+			<div id="result"></div>
+			<div id="accuracyY"><a onclick="clearcanvas()" style="cursor:pointer"><img src=static/assets/correct.svg width=40 alt="yes"></a></div>
+		</div>
+		<div style="height:50px"><a id="quit" onclick="clearcanvas()" style="cursor:pointer">x</a></div>
+		<div style="height:50px" onclick="send_feedback()"><a id="show_more" style="cursor:pointer"></a></div>
+		<div class="holder">
+		<div class="color_outputs">
+			<div id="output1" style="height:30px; width:30px; background-color: #fff6f6;"></div>
+			<div id="output2" style="height:30px; width:30px; background-color: #ffeeee;"></div>
+			<div id="output3" style="height:30px; width:30px; background-color: #fde1e1;"></div>
+			<div id="output4" style="height:30px; width:30px; background-color: #fdd9d9;"></div>
+			<div id="output5" style="height:30px; width:30px; background-color: #fdcece;"></div>
+			<div id="output6" style="height:30px; width:30px; background-color: #fbbfbf;"></div>
+			<div id="output7" style="height:30px; width:30px; background-color: #f6a3a3;"></div>
+			<div id="output8" style="height:30px; width:30px; background-color: #fb8d8d;"></div>
+			<div id="output9" style="height:30px; width:30px; background-color: #fd6e6e;"></div>
+			<div id="output10" style="height:30px; width:30px; background-color: #ff4f4f;"></div>
+		</div>
+		</div>
+	</div>
+	<!--<footer class = "post-footer"></footer>
+	<p id="signiture" style="color:rgb(102, 102, 102); text-align: center; font-size:12px; font-style:italic;"> <br></p> -->
+</body>
+</html>

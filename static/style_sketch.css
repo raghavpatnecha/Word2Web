@@ -1,0 +1,234 @@
+body {
+	margin: 0 auto;
+	padding: 0 0 0 0;
+	text-decoration: none;
+	text-align: center;
+	max-width: 1200px;
+}
+.head {
+	position: relative;
+	padding-bottom: 5px;
+	height: 50px;
+	width: 100%;
+	margin: 0 0 0 0;
+}
+
+#board {
+	/*background-color: #e0ebeb;*/
+	margin: 0 auto;
+	width: 400px;
+	border: 5px double #e38d80;
+}
+#text {
+	text-align: center;
+	color: #767572;
+	font-family: 'indie flower';
+	font-weight:bold;
+	font-size: 40px;
+	margin: 0 auto;
+	padding: 1%;
+	width: 300px;
+}
+.menu {
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	padding: 1%;
+	color: rgb(102, 102, 102);
+	letter-spacing: 1px;
+	font-style: normal;
+	position: relative;
+	margin-bottom: 20px;
+	font-family: "Andale Mono", "Lucida Console", "Courier New", monospace;
+}
+
+.menu:hover{
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+#save_button {
+	background-color: #eeeeee;
+	text-decoration: none;
+	font-size: 22px;
+	color: #767572;
+	font-family: 'indie flower';
+	font-weight:bold;
+	border: 2px dotted #767572;
+	margin: 3% auto;
+	width: 200px;
+	height: 40px;
+	border-radius: 8px;
+}
+
+#save_button:hover {
+	background-color: #d6d6d6;
+}
+
+.container {
+	width: 400px;
+	margin: 1% auto;
+}
+
+.container div {
+	line-height: 50%;
+	text-align: center;
+}
+
+#result{
+	font-family: 'indie flower';
+	font-weight:bold;
+	margin: 20px auto;
+	line-height: 135%;
+	height: 70px;
+	width: 70px;
+	text-align: center;
+	font-size: 60px;
+	color: #767572;
+	border: 3px double #eeeeee;
+}
+
+#quit {
+	font-family: 'indie flower';
+	font-weight:bold;
+	font-size: 30px;
+	color: #9a9997;
+}
+
+.innerClass {
+	display: -webkit-flex;
+	display: flex;
+	margin: 1% auto;
+	text-align: center;
+	width:400px;
+
+}
+.innerClass div {
+	height: 70px;
+	width: 70px;
+	color: #cccccc;
+	font-family: 'indie flower';
+	font-weight:bold;
+	font-size: 60px;
+	text-align: center;
+	margin: 20px auto;
+	line-height: 135%;
+	 -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 6s; /* Firefox < 16 */
+        -ms-animation: fadein 6s; /* Internet Explorer */
+         -o-animation: fadein 6s; /* Opera < 12.1 */
+            animation: fadein 6s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+
+}
+input {
+    background: transparent;
+    border: none;
+    width:70px;
+    height: 70px;
+    font-size: 60px;
+    color: #767572;
+    text-align: center;
+    font-family: 'indie flower';
+	font-weight:bold;
+	line-height: 150%;
+}
+#show_more {
+	font-family: 'indie flower';
+	font-weight:bold;
+	font-size: 20px;
+	color: #9a9997;
+	margin: auto;
+	-webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 6s; /* Firefox < 16 */
+        -ms-animation: fadein 6s; /* Internet Explorer */
+         -o-animation: fadein 6s; /* Opera < 12.1 */
+            animation: fadein 6s;
+
+}
+.holder {
+	height: 70px;
+}
+
+.color_outputs {
+	display: -webkit-flex;
+	display: flex;
+	text-align: center;
+	width: 300px;
+	margin: auto;
+	border: 3px double #eeeeee;
+	 -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+}
+.color_outputs div {
+	color: #8E6868;
+	font-family: 'indie flower';
+	font-weight:bold;
+	font-size: 20px;
+	line-height: 170%;
+	 -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+}
+
+.post-footer {
+	display: block;
+	max-width: 596px;
+	height: 150px;
+	position: relative;
+	margin:auto;
+}
+
+.post-footer::after {
+	content:"";
+	background-image: url("assets/foot.png");
+	background-position: center;
+	margin: 70px;
+	height: 35px;
+	position: absolute;
+	background-size: contain;
+	background-repeat: no-repeat;
+	left:0;
+	right:0;
+	top:0;
+}
+.icon {
+	float: left;
+	opacity: 0.4;
+	height: 100%;
+}
+.icon img {
+	margin: 20px 5px 20px 5px ;
+}
+
+.icon img:hover{
+	opacity: 0.7;
+    filter: alpha(opacity=60);
+}
+
+.main {
+	width:71vw;
+	margin:auto;
+}
+#about {
+	font-size: 15px;
+	font-family: "Andale Mono", "Lucida Console", "Courier New", monospace;
+	display: inline-block;
+	text-align: left;
+	color: rgb(102, 102, 102);
+	font-style: normal;
+	position: relative;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="sketchpad">
+	<title>
+		Neural Magic
+	</title>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style_sketch.css">
+	<script src="http://code.jquery.com/jquery-1.12.2.min.js" type="text/javascript"></script>
+	<link rel="icon"  href="assets/maizy.png">
+	<script src="static/board.js"></script>
+</head>
+<body>
+	<table style="width:100%;"> 
+		<tr style="width:100%;">
+			<td style="width:100%";> 
+				<div class="head">
+					<a class = "icon" style="cursor:pointer" href= "https://twitter.com/dorajambor"><img src=assets/twitter.png width=20 alt="t"></a>
+					<a class = "icon" href= "https://www.linkedin.com/in/dorajambor"><img src=assets/linkedin.png width=16 alt="in"></a>
+					<a class = "icon" href= "https://github.com/dorajam"><img src=assets/github.png width=16 alt="git"></a>	
+					<a class = "icon" href= "mailto:dorajambor@gmail.com"><img src=assets/gmail.png width=16.5 alt="g"></a>
+					<a class="menu" href="https://github.com/dorajam/MNIST-web-sketch" style="color:rgb(102, 102, 102);float:right;margin: 6px 0px 0px 0px">GITHUB</a>
+					<a class="menu" href="" style="color:rgb(102, 102, 102);float:right;margin: 6px 0px 0px 0px">ABOUT</a>	
+ 				</div>
+				<p style="border-top: 1px solid #efeef0;"></p>
+			</td>
+		</tr>
+    </table>
+	<div class="main">
+		<div id="about" style="margin: 35px 20px 100px 20px">
+		<p>
+			<h3>MNIST digit sketch</h3>
+			This was my "hello world” project for building my very first neural network. <br>
+			I was curious how a simple shallow network would perform on unseen data points that might be completely different from the training and validation data sets. <br>
+			This led me to explore the idea of letting users interact with the neural network and see how the accuracy would change upon users intentionally trying to break the network by drawing weird looking digits. 
+			<br><br>
+			Results are somewhat expected, although it’s surprising how well this simple multilayer perceptron manages to deal with the classification. 
+			It's hard to say how accurate the real-time guessing is without sufficient sample data.
+			This is why currently I do not save the classification results to tell you how well it's doing overall.
+			<br><br>
+			If more sample data were available, it would be interesting to store all drawn digits and their correct labels to retrain the network over time.
+			Even though this seems somewhat unnecessary for such a simple web app, this suggests that human interaction can provide useful information for machines to adapt to new scenarios.
+			<br><br>
+			For technical details, please see my Github repo above.
+		</p>
+		</div>
+	</div>
+
+	<footer class = "post-footer"></footer>
+	<p id"signiture" style="color:rgb(102, 102, 102); text-align: center; font-size:12px; font-style:italic;">Handcrafted in New York City, design &amp; code by <br>Dora Jambor</p>
+</body>
+</html>
