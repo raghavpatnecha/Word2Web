@@ -7,12 +7,14 @@ model = load_model('HTML.h5')
 letter_count = {0: 'MENU', 1: 'BANNER', 2: 'TEXT', 3: 'ABOUT', 4: 'CONTACT', 5: 'FOOTER', 6: 'IMG',
                 7: 'MAP', 8: 'TEAM'}
 
+
 def main():
     cap = cv2.VideoCapture(0)
     Lower_green = np.array([110, 50, 50])
     Upper_green = np.array([130, 255, 255])
     pts = deque(maxlen=512)
     blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
+    blackboard_copy = np.zeros((480, 640, 3), dtype=np.uint8)
     digit = np.zeros((200, 200, 3), dtype=np.uint8)
     pred_class = 0
 
@@ -62,11 +64,12 @@ def main():
                         print(pred_class)
 
             pts = deque(maxlen=512)
-            #blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
+            blackboard_copy += blackboard
+            blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
         cv2.putText(img, "Prediction : " + str(letter_count[pred_class]), (10, 320),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.imshow("Frame", img)
-        cv2.imshow("black",blackboard)
+        cv2.imshow("black", blackboard_copy)
         k = cv2.waitKey(10)
         if k == 27:
             break
@@ -87,6 +90,7 @@ def keras_process_image(img):
     img = np.array(img, dtype=np.float32)
     img = np.reshape(img, (-1, image_x, image_y, 1))
     return img
+
 
 keras_predict(model, np.zeros((100, 100, 1), dtype=np.uint8))
 if __name__ == '__main__':
