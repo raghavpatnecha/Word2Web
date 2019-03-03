@@ -20,6 +20,7 @@ def gen():
     Upper_green = np.array([130, 255, 255])
     pts = deque(maxlen=512)
     blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
+    blackboard_copy = np.zeros((480, 640, 3), dtype=np.uint8)
     digit = np.zeros((200, 200, 3), dtype=np.uint8)
     pred_class = 0
 
@@ -67,19 +68,19 @@ def gen():
                         pred_probab, pred_class = keras_predict(model, digit)
                         print(letter_count[pred_class], pred_probab)
                         print(pred_class)
-                        yield (letter_count[pred_class])
-
-
+                        yield "data: %s\n\n" % (letter_count[pred_class])
 
             pts = deque(maxlen=512)
-            # blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
+            blackboard_copy += blackboard
+            blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
         cv2.putText(img, "Prediction : " + str(letter_count[pred_class]), (10, 320),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.imshow("Frame", img)
-        cv2.imshow("black", blackboard)
+        cv2.imshow("black", blackboard_copy)
         k = cv2.waitKey(10)
         if k == 27:
             break
+#            yield "data: %s\n\n" % (letter_count[pred_class])
 
 
 @app.route("/sketch")
@@ -88,6 +89,7 @@ def sketch():
 
 @app.route("/")
 def root():
+
     return render_template('opencvtest.html')
 
 def keras_predict(model, image):
@@ -110,6 +112,5 @@ keras_predict(model, np.zeros((100, 100, 1), dtype=np.uint8))
 
 
 if __name__ == "__main__":
-    gen()
     http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()
