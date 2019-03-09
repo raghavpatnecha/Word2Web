@@ -51,9 +51,9 @@ Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
 `BANNER`, `TEXT`,`ABOUT`, `MENU`,`CONTACT`,`MAP`,`IMG`,`FOOTER`,`TEAM`
 4) Few Exceptions:
 
-         4.1)The `IMG` tag will appear only if the `ABOUT` html tag is present in the output html.
+         4.1)The "IMG" tag will appear only if the "ABOUT" html tag is present in the output html.
          
-         4.2)The `MAP` tag will appear only if the `CONTACT` html tag is present in the output html.
+         4.2)The "MAP" tag will appear only if the "CONTACT" html tag is present in the output html.
          
          4.3) The Response should have a valid output tag present in the template to be added to the html.
      
