@@ -22,7 +22,39 @@ Emojis are ideograms and smileys used in electronic messages and web pages. Emoj
 
 1) Network Used- Convolutional Neural Network
 
-If you face any problem, kindly raise an issue
+If you face any problem, kindly raise an issue'
+
+### Code Requirements - Raghav
+gevent server (gevent is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop.)
+Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
+
+
+### Functionalities  - Raghav
+1) Convert OPENCV responses to valid HTML output.
+
+
+###  Implementation  - Raghav
+
+1) Flask with WSGI server
+
+2) Microsoft event accessing model `window.event` that contains the last event that took place
+
+3) JQuery to append HTML tags.
+
+
+
+### Procedure  - Raghav
+
+1) Run the Flask server by running `flask_server_word2web.py`, the event-stream will stream Open CV responses. 
+2) The `window.event` will get last event reponse for which the JS function will appned the Output HTML to the `localhost:5000`.
+3) Valid OpenCV keywords are:
+`BANNER`, `TEXT`,`ABOUT`, `MENU`,`CONTACT`,`MAP`,`IMG`,`FOOTER`,`TEAM`
+4) Few Exceptions
+     4.1)The `IMG` tag will appear only if the `ABOUT` html tag is present in the output html.
+     4.2)The `MAP` tag will appear only if the `CONTACT` html tag is present in the output html.
+     4.3) The Response should have a valid output tag present in the template to be added to the html.
+     
+     
 
 ### Procedure
 
