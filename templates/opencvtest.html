@@ -21,10 +21,11 @@ if (!!window.EventSource) {
   source.onmessage = function(e) {
     console.log(e)
 	var byte = e.data;
-	var res = byte.split(/\s/);
+	var res = byte
     <!--res.forEach(byte => console.log(byte)); -->
-	console.log(res[0])
+	console.log(res)
     //$("#morse").text(res[0]);
+    addData(res);
 
   }
 }
