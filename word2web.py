@@ -1,14 +1,20 @@
-import cv2
-from keras.models import load_model
+from flask import Flask, request, render_template,Response
 import numpy as np
 from collections import deque
+import cv2
+from keras.models import load_model
+from gevent.wsgi import WSGIServer  # gevent server
 
-model = load_model('HTML.h5')
 letter_count = {0: 'MENU', 1: 'BANNER', 2: 'TEXT', 3: 'ABOUT', 4: 'CONTACT', 5: 'FOOTER', 6: 'IMG',
                 7: 'MAP', 8: 'TEAM'}
+CANVAS_WIDTH = 400
+CANVAS_HEIGHT = 400
+model = load_model('HTML.h5')
+app = Flask(__name__, static_path='/static')
 
 
-def main():
+
+def gen():
     cap = cv2.VideoCapture(0)
     Lower_green = np.array([110, 50, 50])
     Upper_green = np.array([130, 255, 255])
@@ -62,6 +68,7 @@ def main():
                         pred_probab, pred_class = keras_predict(model, digit)
                         print(letter_count[pred_class], pred_probab)
                         print(pred_class)
+                        yield "data: %s\n\n" % (letter_count[pred_class])
 
             pts = deque(maxlen=512)
             blackboard_copy += blackboard
@@ -73,7 +80,17 @@ def main():
         k = cv2.waitKey(10)
         if k == 27:
             break
+#            yield "data: %s\n\n" % (letter_count[pred_class])
 
+
+@app.route("/sketch")
+def sketch():
+    return Response(gen(), content_type='text/event-stream')
+
+@app.route("/")
+def root():
+
+    return render_template('opencvtest.html')
 
 def keras_predict(model, image):
     processed = keras_process_image(image)
@@ -91,7 +108,9 @@ def keras_process_image(img):
     img = np.reshape(img, (-1, image_x, image_y, 1))
     return img
 
-
 keras_predict(model, np.zeros((100, 100, 1), dtype=np.uint8))
-if __name__ == '__main__':
-    main()
+
+
+if __name__ == "__main__":
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
