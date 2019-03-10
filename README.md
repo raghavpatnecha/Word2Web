@@ -13,7 +13,9 @@ This repository turns words to html code
 ##### pip install requirements.txt
 
 ### Description
-Emojis are ideograms and smileys used in electronic messages and web pages. Emoji exist in various genres, including facial expressions, common objects, places and types of weather, and animals. They are much like emoticons, but emoji are actual pictures instead of typographics.
+A web page (also written as webpage) is a document that is suitable to act as a web resource on the World Wide Web. When accessed by a web browser it may be displayed as a web page on a monitor or mobile device.
+
+The web page usually means what is visible, but the term may also refer to a computer file, usually hypertext written in HTML or a comparable markup language. Web browsers coordinate various web resource elements for the written web page, such as style sheets, scripts, and images, to present the web page. Typical web pages provide hypertext that includes a navigation bar or a sidebar menu linking to other web pages via hyperlinks, often referred to as links
 
 ### Functionalities
 1) Filters to detect your hand movement
@@ -50,11 +52,11 @@ If you face any problem, kindly raise an issue
 
 ### Procedure - Training the model
 
-1) First, you have to create a gesture database. For that, run `CreateGest.py`. Enter the gesture name and you will get 2 frames displayed. Look at the contour frame and adjust your hand to make sure that you capture the features of your hand. Press 'c' for capturing the images. It will take 1200 images of one gesture. Try moving your hand a little within the frame to make sure that your model doesn't overfit at the time of training.
-2) Repeat this for all the features you want.
-3) Run `CreateCSV.py` for converting the images to a CSV file
-4) If you want to train the model, run 'TrainEmojinator.py'
-5) Finally, run `Emojinator.py` for testing your model via webcam.
+1) First, you have to create a word database. The process is a bit time consuming since you have to provide images of the words you are trying to train your model on. You have to provide atleast 50 images per word.
+2) Repeat this for all the features you want. Refer to `data` folder in the repo.
+3) Run `data_loader.py` for converting the images to h5 file.
+4) If you want to train the model, run 'train_words.py'
+5) Finally, after training the model, you will get the trained file which you can use in `word2web.py` for converting your words to web code.
 
 ### Contributors
 
