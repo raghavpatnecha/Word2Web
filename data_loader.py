@@ -93,7 +93,7 @@ def return_data():
     features = np.array(features).astype('float32')
     labels = np.array(y).astype('float32')
 
-    with open("features_hls", "wb") as f:
+    with open("features", "wb") as f:
         pickle.dump(features, f, protocol=4)
     with open("labels", "wb") as f:
         pickle.dump(labels, f, protocol=4)

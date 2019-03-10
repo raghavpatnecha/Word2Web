@@ -55,7 +55,7 @@ If you face any problem, kindly raise an issue
 1) First, you have to create a word database. The process is a bit time consuming since you have to provide images of the words you are trying to train your model on. You have to provide atleast 50 images per word.
 2) Repeat this for all the features you want. Refer to `data` folder in the repo.
 3) Run `data_loader.py` for converting the images to h5 file.
-4) If you want to train the model, run 'train_words.py'
+4) If you want to train the model, run `train_words.py`
 5) Finally, after training the model, you will get the trained file which you can use in `word2web.py` for converting your words to web code.
 
 ### Contributors
