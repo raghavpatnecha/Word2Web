@@ -6,10 +6,9 @@
 This repository turns words to html code
 
 ### Code Requirements
-You can install Conda for python which resolves all the dependencies for machine learning.
-
-gevent server (gevent is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop.)
-Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
+1) Install Conda for python which resolves all the dependencies for machine learning.
+2) gevent server (gevent is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop)
+3) Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
 
 ##### pip install requirements.txt
 
