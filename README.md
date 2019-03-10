@@ -8,44 +8,35 @@ This repository turns words to html code
 ### Code Requirements
 You can install Conda for python which resolves all the dependencies for machine learning.
 
+gevent server (gevent is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop.)
+Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
+
 ##### pip install requirements.txt
 
 ### Description
 Emojis are ideograms and smileys used in electronic messages and web pages. Emoji exist in various genres, including facial expressions, common objects, places and types of weather, and animals. They are much like emoticons, but emoji are actual pictures instead of typographics.
 
 ### Functionalities
-1) Filters to detect hand.
+1) Filters to detect your hand movement
 2) CNN for training the model.
+3) Convert OPENCV responses to valid HTML output.
 
 
 ### Python  Implementation
 
 1) Network Used- Convolutional Neural Network
 
-If you face any problem, kindly raise an issue'
+2) Flask with WSGI server
 
-### Code Requirements - Raghav
-gevent server (gevent is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop.)
-Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
+3) Microsoft event accessing model `window.event` that contains the last event that took place
 
+4) JQuery to append HTML tags.
 
-### Functionalities  - Raghav
-1) Convert OPENCV responses to valid HTML output.
+If you face any problem, kindly raise an issue
 
+### Procedure  - Web
 
-###  Implementation  - Raghav
-
-1) Flask with WSGI server
-
-2) Microsoft event accessing model `window.event` that contains the last event that took place
-
-3) JQuery to append HTML tags.
-
-
-
-### Procedure  - Raghav
-
-1) Run the Flask server by running `flask_server_word2web.py`, the event-stream will stream Open CV responses. 
+1) Run the Flask server by running `word2web.py`, the event-stream will stream Open CV responses. 
 2) The `window.event` will get last event reponse for which the JS function will appned the Output HTML to the `localhost:5000`.
 3) Valid OpenCV keywords are:
 `BANNER`, `TEXT`,`ABOUT`, `MENU`,`CONTACT`,`MAP`,`IMG`,`FOOTER`,`TEAM`
@@ -57,9 +48,8 @@ Flask (Flask is a microframework for Python based on Werkzeug, Jinja 2)
          
          4.3) The Response should have a valid output tag present in the template to be added to the html.
      
-     
 
-### Procedure
+### Procedure - Training the model
 
 1) First, you have to create a gesture database. For that, run `CreateGest.py`. Enter the gesture name and you will get 2 frames displayed. Look at the contour frame and adjust your hand to make sure that you capture the features of your hand. Press 'c' for capturing the images. It will take 1200 images of one gesture. Try moving your hand a little within the frame to make sure that your model doesn't overfit at the time of training.
 2) Repeat this for all the features you want.
