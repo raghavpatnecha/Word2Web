@@ -573,15 +573,14 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 .res{
     text-align: center;
 }
-
-.top{
+ /*.top{
 <!-- position:absolute; -->
 top:0;
 left:0;
 height:125px;
 width:100%;
 
-}
+}*/
 
 #board {
     /* background-color: #e0ebeb; */
