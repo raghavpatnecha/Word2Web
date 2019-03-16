@@ -121,7 +121,7 @@ background-image: url(https://images.unsplash.com/photo-1507180227420-b705742773
 .logo {
   font-size: 30px;
   font-weight: 700;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 
 .main-nav__link {
