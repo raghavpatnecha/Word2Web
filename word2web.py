@@ -4,9 +4,14 @@ from collections import deque
 import cv2
 from keras.models import load_model
 from gevent.wsgi import WSGIServer  # gevent server
+import time
 
 letter_count = {0: 'MENU', 1: 'BANNER', 2: 'TEXT', 3: 'ABOUT', 4: 'CONTACT', 5: 'FOOTER', 6: 'IMG',
                 7: 'MAP', 8: 'TEAM'}
+
+letter_count1 = {0: 'BANNER', 1: 'MENU', 2: 'TEXT', 3: 'ABOUT', 4: 'CONTACT', 5: 'FOOTER', 6: 'IMG',
+                7: 'MAP', 8: 'TEAM'}
+
 CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 400
 model = load_model('HTML.h5')
@@ -82,10 +87,15 @@ def gen():
             break
 #            yield "data: %s\n\n" % (letter_count[pred_class])
 
+def sample():
+    for i in letter_count1.values():
+        time.sleep(10)
+        yield "data: %s\n\n" % (i)
+
 
 @app.route("/sketch")
 def sketch():
-    return Response(gen(), content_type='text/event-stream')
+    return Response(sample(), content_type='text/event-stream')
 
 @app.route("/")
 def root():
