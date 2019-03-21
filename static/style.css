@@ -121,7 +121,7 @@ background-image: url(https://images.unsplash.com/photo-1507180227420-b705742773
 .logo {
   font-size: 30px;
   font-weight: 700;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 
 .main-nav__link {
@@ -573,15 +573,14 @@ input:focus, textarea:focus, keygen:focus, select:focus {
 .res{
     text-align: center;
 }
-
-.top{
+ /*.top{
 <!-- position:absolute; -->
 top:0;
 left:0;
 height:125px;
 width:100%;
 
-}
+}*/
 
 #board {
     /* background-color: #e0ebeb; */
