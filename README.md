@@ -64,4 +64,4 @@ If you face any problem, kindly raise an issue
 ##### 2) [Raghav Patnecha](https://github.com/raghavpatnecha)
 
 ### Word2Web
-<img src="https://github.com/raghavpatnecha/Word2Web/blob/master/w2w.gif">
+<img src="https://github.com/raghavpatnecha/Word2Web/blob/master/w2w_2.gif">
