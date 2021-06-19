@@ -3,7 +3,7 @@ import numpy as np
 from collections import deque
 import cv2
 from keras.models import load_model
-from gevent.wsgi import WSGIServer  # gevent server
+from gevent.pywsgi import WSGIServer  # gevent server
 import time
 
 letter_count = {0: 'MENU', 1: 'BANNER', 2: 'TEXT', 3: 'ABOUT', 4: 'CONTACT', 5: 'FOOTER', 6: 'IMG',
